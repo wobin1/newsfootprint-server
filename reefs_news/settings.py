@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(tg4oy1xbv3x4e_m5*^smy0&($y*w32ew6o1y1*mdwg5izkaxd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://newsfootprint-server.onrender.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
