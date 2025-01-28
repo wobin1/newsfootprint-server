@@ -61,10 +61,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4000",  # Example: React frontend
-    "https://newsfootprints.com/",
-]
+CORS_ALLOWED_ORIGINS = ["*"]
 
 ROOT_URLCONF = 'reefs_news.urls'
 
