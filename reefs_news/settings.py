@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import dj_database_url
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,9 +46,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'news_api',
     'ckeditor',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +59,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4000",  # Example: React frontend
+    "https://backend.newsfootprints.com/",
 ]
 
 ROOT_URLCONF = 'reefs_news.urls'
@@ -93,6 +103,16 @@ DATABASES = {
         },
     }
 }
+
+
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgresql://newsfootprint:O9snAjO1W8afZiopuQUpgHe9G6m64SV0@dpg-cuc9etrqf0us73c7pihg-a.oregon-postgres.render.com/newsfootprint_db_a5ky',
+#         conn_max_age=600,  # Optional: persistent connections
+#         ssl_require=True   # Ensure SSL is used
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
