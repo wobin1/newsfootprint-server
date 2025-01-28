@@ -24,7 +24,7 @@ class SubscribersSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField()
+    author = AuthorSerializer(read_only=True)
     category = serializers.StringRelatedField()
     tags = TagSerializer(many=True, read_only=True)
 
