@@ -1,6 +1,6 @@
 # news/admin.py
 from django.contrib import admin
-from .models import Article, Category, Tag
+from .models import Article, Category, Tag, Author, Subscriber
 
 admin.site.site_header = "News Footprint Administration"  # Top header
 admin.site.site_title = "News Footprint Admin Portal"     # Browser tab title
@@ -23,7 +23,14 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
 
-# @admin.register(Author)
-# class AuthorAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'email')
-#     search_fields = ('name', 'email')
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ("name", "bio", "email", "website", "social_links")
+    search_fields = ("name", "social_links", "email", "website")
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ("email",)
+    search_fields = ("email",)

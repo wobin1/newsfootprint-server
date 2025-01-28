@@ -32,6 +32,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CORS_ALLOWED_ORIGIN_REGEXES = [
+#     r"^https://.*\.yourdomain\.com$",
+# ]
+
+
 
 # Application definition
 
@@ -62,7 +67,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True 
-CORS_ALLOWED_ORIGINS = ["*"]
+# CORS_ALLOWED_ORIGINS = ["*"]
 
 ROOT_URLCONF = 'reefs_news.urls'
 
@@ -97,7 +102,7 @@ DATABASES = {
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
         'OPTIONS': {
-            'sslmode': 'require',  # Try disabling SSL initially
+            'sslmode': 'disable',  # Try disabling SSL initially
         },
     }
 }

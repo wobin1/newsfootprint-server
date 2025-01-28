@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Category, Tag, Article, Comment
-from .serializers import CategorySerializer, TagSerializer, ArticleSerializer, CommentSerializer
+from .models import Category, Tag, Article, Comment, Author, Subscriber
+from .serializers import CategorySerializer, TagSerializer, ArticleSerializer, CommentSerializer, AuthorSerializer, SubscribersSerializer
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -20,3 +20,13 @@ class ArticleViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+
+class AuthorsViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+
+class SubscribersViewSet(viewsets.ModelViewSet):
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscribersSerializer
