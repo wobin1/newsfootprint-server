@@ -63,7 +63,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4000",  # Example: React frontend
-    "https://backend.newsfootprints.com",
+    "https://newsfootprints.com/",
 ]
 
 ROOT_URLCONF = 'reefs_news.urls'
