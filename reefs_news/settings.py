@@ -103,7 +103,7 @@ DATABASES = {
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
         'OPTIONS': {
-            'sslmode': 'reguired',  # Try disabling SSL initially
+            'sslmode': 'require',  # Try disabling SSL initially
         },
     }
 }
